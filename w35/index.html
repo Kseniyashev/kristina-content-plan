@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Системный · kristina · 2026-W35</title>
+<style>
+:root{--cream:#FDFBF6;--navy:#1F3A5F;--accent:#B9461D;--beige:#F4F0E6;
+--ink:#16181C;--muted:#6B7280;--line:#E4DCCB;--green:#2E7D32;--gold:#C79A2B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:15px/1.5 -apple-system,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;color:var(--navy)}
+.sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12px;
+background:var(--beige);color:var(--navy);margin-right:6px}
+.badge.warn{background:#FBEEE7;color:var(--accent)}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);
+border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:14px}
+.note b{color:var(--navy)}
+h2{font-size:18px;color:var(--navy);margin:30px 0 10px;padding-top:14px;
+border-top:2px solid var(--navy)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px}
+th{background:var(--beige);color:var(--navy);text-align:left;font-weight:600;
+padding:8px 10px;border:1px solid var(--line);font-size:12.5px}
+td{padding:9px 10px;border:1px solid var(--line);vertical-align:top}
+tr.daystart td{border-top:2px solid var(--navy)}
+.dt{white-space:nowrap;color:var(--muted);font-size:12.5px}
+.topic{font-weight:600}
+.angle{color:#3d4450}
+.ask{background:#FAF7F0;font-size:13.5px;line-height:1.45}
+.ask.have{background:#EDF6ED;color:var(--green)}
+.askcol{width:38%}
+.sid{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
+.note.src{border-left-color:var(--muted);font-size:13px}
+.card.shot{flex:1 1 100%;margin:14px 0;padding:0;overflow:hidden}
+.cardhead{background:var(--navy);color:#fff;padding:10px 14px;font-size:15px}
+.cardhead b{margin-right:8px}
+.sid2{font-family:"SF Mono",Menlo,monospace;font-size:12px;opacity:.75;margin-right:8px}
+.meta2{float:right;font-size:12px;opacity:.8;font-weight:400}
+.setup{padding:12px 14px;background:#F7F9FB;border-bottom:1px solid var(--line);font-size:13.5px}
+.srow{display:flex;gap:10px;margin:5px 0;align-items:baseline}
+.skey{flex:0 0 132px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+ul.mv{margin:0;padding-left:16px}
+ul.mv li{margin:2px 0}
+@media (max-width:760px){.srow{display:block}.skey{display:block;margin-bottom:2px}}
+.stake{padding:10px 14px;background:#FAF7F0;font-size:13.5px;border-bottom:1px solid var(--line)}
+.hookbox{padding:12px 14px;background:#FBEEE7;border-bottom:1px solid var(--line)}
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.hooktxt{font-size:19px;font-weight:700;color:var(--accent);line-height:1.3}
+table.beats{font-size:13.5px;margin:0}
+table.beats th{font-size:11.5px}
+table.beats td{border-left:none;border-right:none}
+table.beats tr.turn td{background:#FDF4F0}
+table.beats tr.turn .act{font-weight:600;color:var(--accent)}
+td.act{width:32%;color:#3d4450}
+td.line{font-size:15px;line-height:1.45}
+.takes{padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px}
+.takes ol{margin:4px 0 0;padding-left:20px}
+.takes li{margin:3px 0}
+.props{padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px;background:#FAFAF7}
+.card.shot .note{margin:0;border-radius:0;border-top:1px solid var(--line);border-left:3px solid var(--gold)}
+@media print{.card.shot{page-break-inside:avoid}.cardhead{background:#1F3A5F !important;-webkit-print-color-adjust:exact}}
+@media (max-width:760px){
+  td.act{width:auto}
+  table.beats,table.beats tbody,table.beats tr,table.beats td{display:block;width:100%}
+  table.beats thead{display:none}
+  table.beats tr{border-bottom:1px solid var(--line);padding:8px 12px;margin:0;border-radius:0}
+  table.beats td{padding:2px 0;border:none}
+  .meta2{float:none;display:block;margin-top:3px}
+}
+.briefs{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.brief{flex:1 1 300px;background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;font-size:13.5px;line-height:1.45}
+.bttl{font-weight:700;color:var(--navy);margin-bottom:4px}
+@media (max-width:760px){.brief{flex:1 1 100%}}
+.locked{color:var(--muted);font-size:12.5px;white-space:nowrap}
+/* Ширины «Темы» и «Угла» заданы явно, иначе браузер делит место по объёму
+   текста, а в заданиях текста больше всего. */
+td.topic{min-width:150px}
+td.angle{min-width:150px}
+@media (max-width:760px){td.topic,td.angle{width:auto;min-width:0}}
+.job{display:inline-block;padding:1px 7px;border-radius:12px;font-size:11.5px;
+background:var(--beige);color:var(--navy)}
+.check{width:52px;text-align:center;color:var(--line);font-size:17px;white-space:nowrap}
+h3{font-size:14px;color:var(--navy);margin:0 0 8px}
+.cards{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0;align-items:flex-start}
+.card{flex:1 1 250px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.card .note{margin:10px 0 0;font-size:12.5px;padding:8px 10px}
+table.mini{font-size:13px}
+table.mini td{border:none;border-bottom:1px solid var(--beige);padding:4px 0}
+.num{text-align:right;white-space:nowrap}
+.muted{color:var(--muted);font-weight:400}
+.caps{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.cap{flex:1 1 220px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13.5px}
+.cap.over{border-color:var(--accent);background:#FDF4F0}
+.capttl{font-weight:600;color:var(--navy);margin-bottom:6px;font-size:13px}
+.verdict{padding:10px 14px;border-radius:8px;font-size:14px;font-weight:600;margin:6px 0 4px}
+.verdict.ok{background:#EDF6ED;color:var(--green)}
+.verdict.bad{background:#FBEEE7;color:var(--accent)}
+.warn{color:var(--accent)}
+.note.warn{border-left-color:var(--accent)}
+.scroll{overflow-x:auto}
+.scroll table{min-width:100%}
+.scroll td{vertical-align:top}
+.scroll td[data-l="От эксперта"]{min-width:250px}
+.scroll td[data-l="Тема и угол"],.scroll td[data-l="Тема"]{min-width:220px}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--muted);font-size:12.5px}
+@media print{body{background:#fff}.wrap{max-width:none;padding:0}
+  tr{page-break-inside:avoid}h2{page-break-after:avoid}}
+
+/* ─── Вкладки. Системная версия несёт два разных вопроса: «что в канале» и
+   «что выходит в четверг». Раньше они лежали в одной простыне, и второй
+   не отвечался вовсе — календарь приходилось собирать в голове. ─── */
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;margin:18px 0 0;
+  padding:8px 0;background:var(--cream);border-bottom:1px solid var(--line)}
+.tabbtn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--navy);
+  font:600 13.5px/1 inherit;padding:9px 16px;border-radius:8px;cursor:pointer}
+.tabbtn:hover{border-color:var(--navy)}
+.tabbtn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabpane{display:none}
+.tabpane.on{display:block}
+@media print{.tabs{display:none}.tabpane{display:block !important}}
+
+/* ─── Раскрывающееся задание эксперту. Текст «что наговорить» длинный по
+   построению (§4 схемы: глагол + форма + количество + что раскрыть), и в
+   ячейке таблицы он раздувал строку так, что остальные поля переставали
+   читаться. Свёрнут по умолчанию, развёрнут по клику. ─── */
+details.ask{font-size:13px}
+details.ask>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;
+  gap:6px;padding:4px 10px;border:1px solid var(--line);border-radius:14px;
+  background:#FAF7F0;color:var(--navy);font-weight:600;font-size:12px;white-space:nowrap}
+details.ask>summary::-webkit-details-marker{display:none}
+details.ask>summary::before{content:"▸";font-size:11px;color:var(--muted)}
+details.ask[open]>summary::before{content:"▾"}
+details.ask>summary:hover{border-color:var(--navy)}
+details.ask>div{margin-top:8px;padding:10px 12px;background:#FAF7F0;
+  border-radius:8px;line-height:1.5;min-width:230px;max-width:460px}
+details.ask.have>summary{background:#EDF6ED;color:var(--green);border-color:#CFE6CF}
+details.ask.have>div{background:#EDF6ED}
+@media print{details.ask>div{display:block !important;max-width:none}}
+
+/* ─── Бейджи каналов: в сводном плане строки разных каналов идут вперемешку,
+   и канал должен читаться боковым зрением, а не вычитываться. ─── */
+.ch{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11.5px;
+  font-weight:600;white-space:nowrap;border:1px solid transparent}
+.ch.reel{background:#EDE7F6;color:#4527A0}
+.ch.story{background:#FFF3E0;color:#B9461D}
+.ch.post{background:#E3F2FD;color:#0D47A1}
+.ch.tg{background:#E0F2F1;color:#00695C}
+.ch.th{background:#F3E5F5;color:#6A1B9A}
+.ch.pr,.ch.sup{background:var(--beige);color:var(--navy)}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;
+  background:var(--beige);color:var(--navy);white-space:nowrap;margin:0 3px 3px 0}
+.tag.pin{background:#E3F2FD;color:#0D47A1}
+.tag.hl{background:#FFF3E0;color:#B9461D}
+.tag.rec{background:#FBEEE7;color:var(--accent);font-weight:600}
+.tag.ok{background:#EDF6ED;color:var(--green)}
+
+/* ─── Сводный план: день как блок, а не как строка таблицы. ─── */
+.day{background:#fff;border:1px solid var(--line);border-radius:10px;
+  margin:0 0 14px;overflow:hidden}
+.dayhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  padding:10px 14px;background:var(--beige);border-bottom:1px solid var(--line)}
+.dayhead b{color:var(--navy);font-size:15px}
+.dayhead .muted{font-size:12.5px}
+.day table{border:none}
+.day td{border-left:none;border-right:none;border-top:none;
+  border-bottom:1px solid var(--beige);vertical-align:top}
+.day tr:last-child td{border-bottom:none}
+td.tm{white-space:nowrap;color:var(--muted);font-size:12.5px;width:66px}
+td.tm b{display:block;color:var(--ink);font-size:13.5px}
+td.what .tags{margin-top:6px;line-height:1}
+td.chc{width:92px}
+td.what b{color:var(--ink)}
+td.what .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.ax{display:flex;gap:6px;align-items:baseline;margin:0 0 5px;line-height:1}
+.ax:last-child{margin-bottom:0}
+.axk{flex:0 0 54px;font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--muted);padding-top:2px}
+.ax .tag,.ax .job{margin:0 3px 0 0}
+details.note.why{padding:0;border-left-width:3px}
+details.note.why>summary{cursor:pointer;list-style:none;display:inline-flex;
+  align-items:center;gap:6px;padding:10px 16px;font-weight:600;color:var(--navy);
+  font-size:13px}
+details.note.why>summary::-webkit-details-marker{display:none}
+details.note.why>summary::before{content:"▸";color:var(--muted);font-size:11px}
+details.note.why[open]>summary::before{content:"▾"}
+details.note.why>div{padding:0 16px 12px;font-size:13.5px;line-height:1.5}
+@media print{details.note.why>div{display:block !important}}
+.axes-key{margin:14px 0 6px}
+.axes-key>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;
+  gap:6px;font-size:13px;font-weight:600;color:var(--navy);padding:6px 12px;
+  border:1px solid var(--line);border-radius:8px;background:#fff}
+.axes-key>summary::-webkit-details-marker{display:none}
+.axes-key>summary::before{content:"▸";color:var(--muted)}
+.axes-key[open]>summary::before{content:"▾"}
+.axes-key table{margin-top:10px;font-size:13px}
+.axes-key td:first-child{width:120px;white-space:nowrap;color:var(--navy);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px;font-size:12.5px;
+  color:var(--muted);align-items:center;line-height:1}
+.empty{padding:12px 14px;color:var(--muted);font-size:13px}
+@media (max-width:760px){
+  .day table,.day tbody,.day tr,.day td{display:block;width:100%}
+  .day tr{border:none;border-bottom:1px solid var(--beige);border-radius:0;
+    margin:0;padding:10px 12px;background:#fff}
+  .day td{padding:2px 0}
+  td.tm,td.chc{width:auto;display:inline-block;margin-right:8px}
+}
+/* Телефон: строка таблицы разворачивается в карточку. Эксперт открывает эту
+   страницу там же, где записывает голосовые, а пять колонок в 375 px не влезают. */
+@media (max-width:760px){
+  .wrap{padding:18px 12px 40px}
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{background:#fff;border:1px solid var(--line);border-radius:10px;
+     margin:0 0 12px;padding:10px 12px;position:relative}
+  tr.daystart{border-top:1px solid var(--line)}
+  td{border:none;padding:4px 0 4px 0}
+  td:empty{display:none}
+  td[data-l]::before{content:attr(data-l);display:block;font-size:11px;
+    text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:1px}
+  td.topic{font-size:16px;font-weight:600}
+  td.ask{background:var(--beige);border-radius:8px;padding:10px 12px;margin-top:6px}
+  .check{position:absolute;top:10px;right:12px;width:auto;text-align:right}
+  .askcol{width:auto}
+}
+</style></head><body>
+<div class="wrap">
+<h1>Контент-план · системная версия</h1>
+<div class="sub">kristina &middot; неделя 2026-W35 (2026-08-24 — 2026-08-30) &middot; план <code>kristina-2026-W35</code> &middot; алгоритм v1.17<br><span class="badge">С1</span><span class="badge">статус: draft</span><span class="badge">съёмка 22.08</span><span class="badge warn">ДНК-лифт есть, velocity не измерена</span></div>
+<div class="note"><b>Провенанс.</b> Проход A · срез ДНК-лифта 2026-08-13 · банк тем <code>experts/kristina/topic_bank.yaml</code> · линтеры: lint_plan.py --expert kristina, surface_check.py<br>Трендвотчинг: <span class="warn">ДНК-лифт снят 2026-08-13, но второго среза нет — velocity не измерялась, полка «тренд» пуста</span></div>
+<div class="note"><b>Стадия и волна.</b> Попадание. Задача стадии — не расти, а найти заходящую связку &middot; Продающих слотов нет: на С1 J4 = 0%. Конверсия встроенная (CTA в каждом ролике)</div>
+<div class="note">Хештеги не используем: −31.7% просмотров, −33.9% взаимодействий ⬤.</div>
+<div class="tabs"><button class="tabbtn on" data-t="t-ch">По каналам</button><button class="tabbtn" data-t="t-cal">Сводный план</button></div>
+<div class="tabpane on" id="t-ch"><details class="axes-key"><summary>Что значат оси в колонке «Оси»</summary><table><tbody><tr><td>Работа<div class="sid">§5.4</div></td><td>Что слот делает с человеком: <b>охват</b> — попасть к тем, кто вас не знает (метрика: пересылки на охват) · <b>доверие</b> — стать «своим экспертом» · <b>конверсия</b> — снять барьер и получить контакт · <b>продажа</b> · <b>связь</b> — удержать своих. Именно эта ось делит бюджет недели.<div class="sid" style="margin-top:5px">в этой неделе: J1 · J2</div></td></tr><tr><td>Источник<div class="sid">§5.3</div></td><td>Откуда взято сырьё: <b>эвергрин</b> — проверенные драйверы ниши по ДНК-лифту · <b>тренд</b> и <b>ставка</b> — из недельного среза Радара · <b>повестка</b> · <b>продукт</b> · <b>лайф</b>.<div class="sid" style="margin-top:5px">в этой неделе: эвергрин</div></td></tr><tr><td>Заход<div class="sid">§14.5</div></td><td>Ширина: <b>reach</b> — широкий relatable контент, <b>depth</b> — нишевый глубокий, под покупателя. Квота недели 60–70% / 30–40%. 🔴 <b>Не путать с работой:</b> «охват» — это ЗАДАЧА слота, <code>reach</code> — ШИРИНА захода. Оси независимы, слот бывает «доверие + reach».<div class="sid" style="margin-top:5px">в этой неделе: depth · reach</div></td></tr><tr><td>Интент<div class="sid">§14.5</div></td><td>Какое доверие строит: <b>Growth</b> — охват · <b>Authority</b> — доказательство экспертизы · <b>Authenticity</b> — личное и ценности. Все три обязаны присутствовать в неделе.<div class="sid" style="margin-top:5px">в этой неделе: Authenticity · Authority · Growth</div></td></tr><tr><td>ЦА<div class="sid">profile.yaml</div></td><td><b>A1</b> — взрослый с последствиями травмы — ядро аудитории<br><b>A2</b> — предприниматель, блогер, публичный эксперт<br><b>A3</b> — психолог до 7 лет в профессии / до 3 000 часов практики</td></tr></tbody></table></details>
+<h2>Распределение</h2><div class="cards">
+<div class="card"><h3>Работы · рилсы <span class="muted">· 7</span></h3><table class="mini"><tbody><tr><td>охват</td><td class="num">5</td><td class="num muted">71%</td></tr><tr><td>доверие</td><td class="num">2</td><td class="num muted">29%</td></tr><tr><td>конверсия</td><td class="num">0</td><td class="num muted">0%</td></tr><tr><td>продажа</td><td class="num">0</td><td class="num muted">0%</td></tr><tr><td>связь</td><td class="num">0</td><td class="num muted">0%</td></tr></tbody></table><div class="note">С1 = 70% охват / 25% доверие / 5% конверсия. 5 слотов J1, 2 слота J2. Продажи и связь — ноль по построению: J5 не работает без базы ⬤. CTA стоит в каждом ролике — правка SMM, перенесена с прошлых недель.</div></div>
+<div class="card"><h3>Источники · внутри J1+J2 <span class="muted">· 7</span></h3><table class="mini"><tbody><tr><td>эвергрин</td><td class="num">7</td><td class="num muted">100%</td></tr></tbody></table></div>
+<div class="card"><h3>Чем закрыт вал · рилсы <span class="muted">· 7</span></h3><table class="mini"><tbody><tr><td>съёмка</td><td class="num">6</td><td class="num muted">86%</td></tr><tr><td>съёмка (без лица)</td><td class="num">1</td><td class="num muted">14%</td></tr></tbody></table></div>
+<div class="card"><h3>Разнообразие <span class="muted">· 7</span></h3><table class="mini"><tbody><tr><td>ЦА: A1</td><td class="num">7</td><td class="num muted">100%</td></tr><tr><td>depth</td><td class="num">2</td><td class="num muted">29%</td></tr><tr><td>reach</td><td class="num">5</td><td class="num muted">71%</td></tr></tbody></table><details class="note why"><summary>почему так</summary><div>Темы: нейробиология_мозг 1,79 ×3 · отношения_расставания 1,40 ×2 · травма_детство_родители 1,12 ×1 · тревога_паника_сон 0,90 ×1. 🔑 Кап `max_per_topic` соблюдён (ядровая ≤3): в W34 на одной теме стояло шесть слотов из семи, и это само по себе было сигналом, что разметка натянута. 🔴 ЧЕГО НЕТ ОСОЗНАННО: `практика_для_специалистов` 0,67 и `реализация_цели` 0,68 — антипаттерны, в рилсы не идут. ДПО остаётся в Telegram, адресно. ⚠️ `тревога_паника_сон` 0,90 в R-06 взята сознательно: слот безлицевой, и его несёт визуальная ось (демонстрация процесса 1,60 против говорящей головы 0,78), а не тема.</div></details></div>
+</div>
+<h2>Ёмкость</h2><div class="caps"><div class="cap"><div class="capttl">ЭКСПЕРТ В КАДРЕ</div><div>7 слотов · 100 из 360 мин<br><span class="muted">28%</span></div></div></div><div class="verdict ok">✅ Неделя помещается в ёмкость</div><details class="note why"><summary>почему так</summary><div>7 оригиналов, 101 из 360 производственных минут, 28% съёмочного дня (`capacity.py --expert kristina --slots &quot;T04x4,T02x2,TXDx1&quot;`). ⬇️ Легче W34 (108 мин), хотя разница меньше ожидаемой: четыре реакции стоят в полосе 30–60, и экономят только две сценки с демонстрацией. ⚠️ Запас прежний: k=1.0, camera_ready, потолок около 22 коротких оригиналов. Объём выбран решением «как у Маши», а не физикой.</div></details>
+<h2>Instagram · рилсы <span class="muted">· 7</span></h2>
+<div class="scroll"><table><thead><tr><th>ID</th><th>Когда</th><th>Формат</th><th>Тема и угол</th><th>Хук</th><th>Оси</th><th>От эксперта</th></tr></thead><tbody>
+<tr class="daystart"><td data-l="ID">R-01</td><td data-l="Когда"><div class="dt">24.08 пн</div><div><b>08:30</b></div></td><td data-l="Формат"><div><b>Реакция на чужое</b></div><div class="sid">T04 · 55 с · съёмка</div><div class="sid">PH3 · Спор с чужим тезисом</div></td><td data-l="Тема и угол"><div class="topic">«Просто перестань об этом думать»: мозг в этот момент занят обратным</div><div class="angle">Запрет на мысль удерживает её: мозгу приходится помнить, о чём именно нельзя вспоминать</div></td><td data-l="Хук"><span class="tag">paradoks</span><div>«Просто перестань об этом думать». Вы пробовали. Мозг устроен ровно наоборот.</div><div class="sid">назв.: Команда, которую мозг не выполняет</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">охват</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">reach</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Growth</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">коммент</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человеку говорят «просто перестань об этом думать», и он правда пытается — а мысль возвращается ещё чаще. Наговорите, почему так происходит: что делает мозг, когда мы запрещаем себе о чём-то думать, и почему запрет удерживает мысль вместо того, чтобы её убрать. Начните с самой фразы — скажите её дословно, так, как вы слышите её от клиентов. Слова «мозг» и «нервная система» нужны прямо в объяснении; названия отделов мозга и гормонов не нужны, они по нашим замерам ничего не добавляют.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">R-02</td><td data-l="Когда"><div class="dt">25.08 вт</div><div><b>08:30</b></div></td><td data-l="Формат"><div><b>Сценка</b></div><div class="sid">T02 · 30 с · съёмка</div><div class="sid">PA5 · Одна ситуация, две реакции</div></td><td data-l="Тема и угол"><div class="topic">«Он совсем другой». Через полгода тот же разговор, что и с прошлым</div><div class="angle">Узнавание срабатывает раньше оценки: знакомое читается как безопасное, даже когда оно ранит</div></td><td data-l="Хук"><span class="tag">relatable</span><div>— Он совсем не такой, как прошлый. — Ты и про прошлого так говорила.</div><div class="sid">назв.: Тот же сценарий, другое имя</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">охват</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">reach</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Growth</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">коммент</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Разговор двух подруг: одна рассказывает про нового мужчину и уверена, что этот совсем другой, вторая слышит ровно то же, что было в прошлый раз. Наговорите сам разговор — три-четыре реплики за каждую, живыми словами. Отдельно, уже не репликой, объясните, почему человек выбирает похожее: что в этот момент срабатывает быстрее осознанного решения. 🔴 Ярлыки не нужны — ни «абьюзер», ни типы привязанности: это ваш прямой запрет.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">R-03</td><td data-l="Когда"><div class="dt">26.08 ср</div><div><b>08:30</b></div></td><td data-l="Формат"><div><b>Реакция на чужое</b></div><div class="sid">T04 · 55 с · съёмка</div><div class="sid">PH3 · Спор с чужим тезисом</div></td><td data-l="Тема и угол"><div class="topic">«Тебе просто надо себя заставить». Но нервная система уже на нуле</div><div class="angle">Истощение и лень выглядят одинаково снаружи и устроены по-разному внутри: заставлять себя в этом состоянии — тратить то, чего уже нет</div></td><td data-l="Хук"><span class="tag">mif</span><div>«Соберись, просто заставь себя». Если бы дело было в силе воли, вы бы справились ещё год назад.</div><div class="sid">назв.: Не лень</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">охват</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">reach</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Growth</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">коммент</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человеку, у которого нет сил, говорят «соберись, просто заставь себя» — и он заставляет, а становится хуже. Наговорите, чем истощение отличается от лени и что происходит с нервной системой, когда человек в этом состоянии давит на себя волей. Начните с самой фразы, дословно. Без диагнозов и без назначений: объясняете механизм, а не ставите состояние.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">R-04</td><td data-l="Когда"><div class="dt">27.08 чт</div><div><b>08:30</b></div></td><td data-l="Формат"><div><b>Сценка</b></div><div class="sid">T02 · 30 с · съёмка</div><div class="sid">PA1 · Сценка с разоблачением вслух</div></td><td data-l="Тема и угол"><div class="topic">Родители ругались на кухне, а ребёнок в соседней комнате был уверен, что это из-за него</div><div class="angle">Ребёнок объясняет ссору собой не по ошибке: так у него остаются хорошие родители</div></td><td data-l="Хук"><span class="tag">pov</span><div>Вам восемь. За стеной кричат. И вы уже знаете, что это из-за вас.</div><div class="sid">назв.: Вывод, который сделали за вас</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">depth</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Authority</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">коммент</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Ребёнок в соседней комнате слышит, как ругаются родители, и решает, что причина в нём. Наговорите эту сцену словами ребёнка — две-три фразы, которые он говорит себе в этот момент. Потом отдельно объясните, зачем психике такой вывод: почему для ребёнка проще считать виноватым себя, чем признать, что близкие ненадёжны.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">R-05</td><td data-l="Когда"><div class="dt">28.08 пт</div><div><b>08:30</b></div></td><td data-l="Формат"><div><b>Реакция на чужое</b></div><div class="sid">T04 · 55 с · съёмка</div><div class="sid">PH3 · Спор с чужим тезисом</div></td><td data-l="Тема и угол"><div class="topic">«Таблетки — это костыль»: спор, в котором вопрос поставлен неверно</div><div class="angle">Препарат и терапия работают на разных этажах одной нервной системы; спор «или-или» поставлен неверно</div></td><td data-l="Хук"><span class="tag">tihaya_kontroversiya</span><div>«Таблетки — это костыль, надо работать с причиной». Вопрос поставлен неверно.</div><div class="sid">назв.: Два этажа одной нервной системы</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">охват</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">reach</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Authority</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">директ</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человеку выписали препарат, и он слышит от близких «таблетки — это костыль». Наговорите, какие задачи решает медикаментозная помощь, а какие психотерапия, и почему это не обязательно выбор между одним и другим. Начните с самой фразы, дословно. 🔴 Без названий препаратов, без рекомендаций пить или не пить, без «лучше/хуже» и без противопоставления психологии и психиатрии. И без сроков и обещаний результата.<div class="sid" style="margin-top:6px">корпус: частично — «дюран 68 · 00:16:53» (нейропластичность и скорость методов)</div></div></details></td></tr>
+<tr class="daystart"><td data-l="ID">R-06</td><td data-l="Когда"><div class="dt">29.08 сб</div><div><b>10:00</b></div></td><td data-l="Формат"><div><b>Демонстрация</b></div><div class="sid">TXD · 30 с · съёмка (без лица)</div><div class="sid">PK1 · Заземление вместе со зрителем</div></td><td data-l="Тема и угол"><div class="topic">Что делать руками, когда накрывает и думать уже нечем</div><div class="angle">Через тело быстрее, чем через мысли: пока нервная система в тревоге, уговоры до неё не доходят</div></td><td data-l="Хук"><span class="tag">how_to</span><div>Когда накрыло, уговаривать себя бесполезно. Начинать надо не с головы.</div><div class="sid">назв.: Руками, а не мыслями</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">охват</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">reach</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Growth</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">сохранить</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человека накрыло прямо сейчас, и думать он уже не может. Покажите одно действие, которое делается руками и занимает меньше минуты. Наговорите по шагам, что именно человек делает и что при этом происходит с нервной системой — почему через тело в этот момент быстрее, чем через мысли. 🔴 Без обещания, что тревога уйдёт, и без подачи как замены помощи. Отдельно скажите, по каким признакам нужна уже не самопомощь, а врач.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">R-07</td><td data-l="Когда"><div class="dt">30.08 вс</div><div><b>11:00</b></div></td><td data-l="Формат"><div><b>Реакция на чужое</b></div><div class="sid">T04 · 55 с · съёмка</div><div class="sid">PH3 · Спор с чужим тезисом</div></td><td data-l="Тема и угол"><div class="topic">«Просто полюби себя»: совет без единой инструкции внутри</div><div class="angle">Отношение к себе собрано из чужих взглядов и не переписывается решением; меняется то, чем оно держится</div></td><td data-l="Хук"><span class="tag">antisovet</span><div>«Полюби себя». Вы слышали это сто раз. Инструкции внутри так и не было.</div><div class="sid">назв.: Совет без инструкции</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">источник</span><span><span class="tag" title="откуда взято сырьё (§5.3)">эвергрин</span></span></div><div class="ax"><span class="axk">заход</span><span><span class="tag" title="широкий relatable против нишевого глубокого; квота недели 60–70% / 30–40% (§14.5)">depth</span></span></div><div class="ax"><span class="axk">интент</span><span><span class="tag" title="какое доверие строит: Growth охват, Authority экспертиза, Authenticity личное (§14.5)">Authenticity</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div><div class="ax"><span class="axk">CTA</span><span><span class="tag rec">коммент</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человеку сто раз сказали «полюби себя», и он не понимает, что с этим делать. Наговорите, почему этот совет невыполним как команда: из чего вообще складывается отношение человека к себе и почему оно не меняется решением. Начните с самой фразы. Если считаете этот совет пустым — скажите это прямо, вашими словами: несогласие здесь и есть ролик.</div></details></td></tr>
+</tbody></table></div>
+<h2>Instagram · сторис <span class="muted">· 4</span></h2>
+<div class="scroll"><table><thead><tr><th>ID</th><th>Когда</th><th>Серия</th><th>Содержание</th><th>Механика</th><th>Кадров</th><th>От эксперта</th></tr></thead><tbody>
+<tr class="daystart"><td data-l="ID">S-01</td><td data-l="Когда"><div class="dt">24.08 пн</div><div><b>12:00</b></div></td><td data-l="Серия"><div><b>Вопрос</b></div></td><td data-l="Содержание">Стикер-вопрос: «какую фразу вам говорили чаще всего — и она не помогала». Два кадра подводки, третий — стикер</td><td data-l="Механика">стикер-вопрос; ответы разбираются в среду и уходят в банк чужих фраз</td><td data-l="Кадров">3</td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Отдельная запись не нужна, подводку возьмём из R-01. 🔑 Это вход в следующие недели: формат «реакция на чужое» держится на чужих фразах, а сейчас мы пишем их сами. После стикера они станут материалом от аудитории.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">S-02</td><td data-l="Когда"><div class="dt">26.08 ср</div><div><b>13:00</b></div></td><td data-l="Серия"><div><b>Разбор присланного</b></div></td><td data-l="Содержание">Разбор двух-трёх фраз из стикера, голосом, по 20–30 секунд на каждую</td><td data-l="Механика">переклейка ответов из S-01</td><td data-l="Кадров">4</td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Заранее записывать ничего не нужно — сначала получим ответы аудитории.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">S-03</td><td data-l="Когда"><div class="dt">28.08 пт</div><div><b>13:00</b></div></td><td data-l="Серия"><div><b>Техника</b></div></td><td data-l="Содержание">Продолжение R-06: то же действие руками, но целиком и без монтажа. Кадр на шаг</td><td data-l="Механика">переклейка из съёмки R-06, отдельной записи не требует</td><td data-l="Кадров">4</td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Записывать отдельно не нужно: снимается в один заход с R-06.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">S-04</td><td data-l="Когда"><div class="dt">30.08 вс</div><div><b>18:00</b></div></td><td data-l="Серия"><div><b>Опрос</b></div></td><td data-l="Содержание">Опрос: что было бы для вас доказательством, что метод работает — самочувствие, реакция близких, конкретное изменение в жизни</td><td data-l="Механика">опрос из трёх вариантов; результат идёт в следующую неделю</td><td data-l="Кадров">2</td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Отдельная запись не нужна. Это опрос.</div></details></td></tr>
+</tbody></table></div>
+<h2>Instagram · посты <span class="muted">· 3</span></h2>
+<div class="scroll"><table><thead><tr><th>ID</th><th>Когда</th><th>Формат</th><th>Тема</th><th>Что внутри</th><th>Первая строка</th><th>Оси</th><th>От эксперта</th></tr></thead><tbody>
+<tr class="daystart"><td data-l="ID">P-01</td><td data-l="Когда"><div class="dt">25.08 вт</div><div><b>11:00</b></div></td><td data-l="Формат"><div><b>Карусель</b></div></td><td data-l="Тема"><div class="topic">Доход вырос, а ощущение опасности осталось</div></td><td data-l="Что внутри">6 карточек: как это выглядит изнутри, почему сумма на счету не отменяет тревоги, за счёт чего держится ощущение «вот-вот всё рухнет», с чего начинается работа</td><td data-l="Первая строка"><span class="tag">tihaya_kontroversiya</span><div>Доход вырос втрое. Ощущение, что вот-вот всё рухнет, осталось прежним.</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="предприниматель, блогер, публичный эксперт">A2</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человек зарабатывает заметно больше, чем раньше, а чувство безопасности не появилось. Наговорите, почему так бывает: за счёт чего держится ощущение угрозы, когда объективно всё в порядке, и почему рост дохода сам по себе его не снимает.</div></details></td></tr>
+<tr class="daystart"><td data-l="ID">P-02</td><td data-l="Когда"><div class="dt">27.08 чт</div><div><b>11:00</b></div></td><td data-l="Формат"><div><b>Карусель</b></div></td><td data-l="Тема"><div class="topic">Сколько на самом деле нужно ходить: четыре разных сценария вместо одного «годами»</div></td><td data-l="Что внутри">5 карточек: одна-две встречи под конкретную точку · три-шесть месяцев под задачу · долгий контакт с редкими встречами · раз в год на пересборку. Последняя карточка — как понять, какой сценарий ваш</td><td data-l="Первая строка"><span class="tag">cifra</span><div>«Терапия — это годы». На практике сценариев четыре, и годы — только один из них.</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div></td><td data-l="От эксперта"><details class="ask have"><summary>записывать не нужно</summary><div>✓ Записывать ничего не нужно — материал уже есть в корпусе. Записывать ничего не нужно: вы это уже рассказывали. Соберём из вашего голосового про длительность работы. 🔴 Сроков и обещаний результата в тексте не будет.<div class="sid" style="margin-top:6px">корпус: 🔑 ЗАКРЫТ КОРПУСОМ — «дюран созвон · 26:47» (как устроена её работа по длительности, четыре сценария названы её словами)</div></div></details></td></tr>
+<tr class="daystart"><td data-l="ID">P-03</td><td data-l="Когда"><div class="dt">29.08 сб</div><div><b>12:00</b></div></td><td data-l="Формат"><div><b>Карусель</b></div></td><td data-l="Тема"><div class="topic">«Ветки реальности»: как говорить с человеком, который объясняет свою жизнь эзотерикой, не обесценивая его</div></td><td data-l="Что внутри">6 карточек: с чем такой человек приходит · почему спорить бесполезно · что в этой картине мира правда работает · как то же самое выглядит со стороны психики · где проходит граница</td><td data-l="Первая строка"><span class="tag">pozicionnyy</span><div>Спорить с человеком, который верит в ветки реальности, бессмысленно. Переводить — работает.</div></td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div></td><td data-l="От эксперта"><details class="ask have"><summary>записывать не нужно</summary><div>✓ Записывать ничего не нужно — материал уже есть в корпусе. Записывать ничего не нужно: позиция сформулирована в вашем голосовом целиком.<div class="sid" style="margin-top:6px">корпус: 🔑 ЗАКРЫТ КОРПУСОМ — «дюран 68 · 00:12:27» (её позиция про ветки реальности, помечена в индексе как мост к эзотерической аудитории без обесценивания)</div></div></details></td></tr>
+</tbody></table></div>
+<h2>Telegram <span class="muted">· 3</span></h2>
+<div class="scroll"><table><thead><tr><th>ID</th><th>Когда</th><th>Формат</th><th>Тема</th><th>Первая строка</th><th>Сырьё</th><th>Оси</th><th>От эксперта</th></tr></thead><tbody>
+<tr class="daystart"><td data-l="ID">TG-01</td><td data-l="Когда"><div class="dt">25.08 вт</div><div><b>20:00</b></div></td><td data-l="Формат">Лонгрид</td><td data-l="Тема"><div class="topic">Когда уже пробовали и не помогло</div></td><td data-l="Первая строка">Ко мне часто приходят не с первого раза. И это отдельный разговор.</td><td data-l="Сырьё">новое голосовое + «дюран созвон · 23:17» (обезличить)</td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Человек уже был у специалиста, ходил какое-то время, и ему не стало легче. Наговорите, что вы в таком случае делаете иначе: с чего начинаете, что выясняете в первую очередь и почему предыдущий заход мог не сработать — без оценки коллег и без «там было плохо, а у меня хорошо». 🔴 Сроки, цифры и обещания результата не называем. Кейс, если будете рассказывать, — только обезличенно: без города, возраста, профессии и сумм.<div class="sid" style="margin-top:6px">корпус: частично — «дюран созвон · 23:17»</div></div></details></td></tr>
+<tr class="daystart"><td data-l="ID">TG-02</td><td data-l="Когда"><div class="dt">27.08 чт</div><div><b>20:00</b></div></td><td data-l="Формат">Для специалистов</td><td data-l="Тема"><div class="topic">Почему в одних методах перестройка идёт быстрее: нейропластичность как рабочий критерий выбора</div></td><td data-l="Первая строка">Все направления работают на одно. Разница в том, насколько быстро перестраиваются связи.</td><td data-l="Сырьё">«дюран 68 · 00:16:53»</td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="психолог до 7 лет в профессии / до 3 000 часов практики">A3</span></span></div></td><td data-l="От эксперта"><details class="ask have"><summary>записывать не нужно</summary><div>✓ Записывать ничего не нужно — материал уже есть в корпусе. Записывать не нужно: это ваше голосовое про паттерн активации нейронов и выбор метода под задачу. 🔴 Без критики конкретных школ и коллег.<div class="sid" style="margin-top:6px">корпус: 🔑 ЗАКРЫТ КОРПУСОМ — «дюран 68 · 00:16:53» (реорганизация нейронных ансамблей, ЕМДР, нейропроцессинг, гипноз — её слова)</div></div></details></td></tr>
+<tr class="daystart"><td data-l="ID">TG-03</td><td data-l="Когда"><div class="dt">30.08 вс</div><div><b>20:00</b></div></td><td data-l="Формат">Лонгрид</td><td data-l="Тема"><div class="topic">Мысль, которую запретили: почему «не думай об этом» работает наоборот</div></td><td data-l="Первая строка">Чем сильнее вы выталкиваете мысль, тем надёжнее мозг держит её под рукой.</td><td data-l="Сырьё">R-01 (то же голосовое, развёрнуто)</td><td data-l="Оси"><div class="ax"><span class="axk">работа</span><span><span class="job" title="что слот делает с человеком (§5.4)">доверие</span></span></div><div class="ax"><span class="axk">ЦА</span><span><span class="tag" title="взрослый с последствиями травмы — ядро аудитории">A1</span></span></div></td><td data-l="От эксперта"><details class="ask"><summary>что наговорить</summary><div>Отдельная запись не нужна. Текст соберём на основе R-01.</div></details></td></tr>
+</tbody></table></div></div>
+<div class="tabpane" id="t-cal"><div class="note"><b>Что выходит и когда.</b> Все каналы вперемешку, в том порядке, в каком человек это увидит. Эта вкладка отвечает на вопрос «что у нас в четверг», на который разбивка по каналам не отвечает в принципе: чтобы собрать день, приходилось читать пять таблиц и складывать в голове.</div>
+<div class="legend"><span class="ch reel">Рилс</span><span class="ch story">Сторис</span><span class="ch post">Пост</span><span class="ch tg">Telegram</span><span class="tag rec">нужна запись</span><span class="tag pin">в закреп</span><span class="tag hl">в хайлайтс</span></div>
+<div class="day"><div class="dayhead"><b>пн 24.08</b><span class="muted">2 публикации</span><span class="muted">· Рилс 1 · Сторис 1</span><span class="tag rec">записать: 2</span></div><table><tbody>
+<tr><td class="tm"><b>08:30</b>R-01</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Команда, которую мозг не выполняет</b><div class="sub">«Просто перестань об этом думать»: мозг в этот момент занят обратным · Реакция на чужое · 55 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>12:00</b>S-01</td><td class="chc"><span class="ch story">Сторис</span></td><td class="what"><b>Стикер-вопрос: «какую фразу вам говорили чаще всего — и она не помогала». Два кадра подводки, третий — стикер</b><div class="sub">Вопрос · 3 кадров</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+</tbody></table></div>
+<div class="day"><div class="dayhead"><b>вт 25.08</b><span class="muted">3 публикации</span><span class="muted">· Пост 1 · Рилс 1 · Telegram 1</span><span class="tag rec">записать: 3</span></div><table><tbody>
+<tr><td class="tm"><b>08:30</b>R-02</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Тот же сценарий, другое имя</b><div class="sub">«Он совсем другой». Через полгода тот же разговор, что и с прошлым · Сценка · 30 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>11:00</b>P-01</td><td class="chc"><span class="ch post">Пост</span></td><td class="what"><b>Доход вырос, а ощущение опасности осталось</b><div class="sub">Карусель</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>20:00</b>TG-01</td><td class="chc"><span class="ch tg">Telegram</span></td><td class="what"><b>Когда уже пробовали и не помогло</b><div class="sub">Лонгрид</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+</tbody></table></div>
+<div class="day"><div class="dayhead"><b>ср 26.08</b><span class="muted">2 публикации</span><span class="muted">· Рилс 1 · Сторис 1</span><span class="tag rec">записать: 2</span></div><table><tbody>
+<tr><td class="tm"><b>08:30</b>R-03</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Не лень</b><div class="sub">«Тебе просто надо себя заставить». Но нервная система уже на нуле · Реакция на чужое · 55 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>13:00</b>S-02</td><td class="chc"><span class="ch story">Сторис</span></td><td class="what"><b>Разбор двух-трёх фраз из стикера, голосом, по 20–30 секунд на каждую</b><div class="sub">Разбор присланного · 4 кадров</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+</tbody></table></div>
+<div class="day"><div class="dayhead"><b>чт 27.08</b><span class="muted">3 публикации</span><span class="muted">· Пост 1 · Рилс 1 · Telegram 1</span><span class="tag rec">записать: 1</span></div><table><tbody>
+<tr><td class="tm"><b>08:30</b>R-04</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Вывод, который сделали за вас</b><div class="sub">Родители ругались на кухне, а ребёнок в соседней комнате был уверен, что это из-за него · Сценка · 30 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>11:00</b>P-02</td><td class="chc"><span class="ch post">Пост</span></td><td class="what"><b>Сколько на самом деле нужно ходить: четыре разных сценария вместо одного «годами»</b><div class="sub">Карусель</div><div class="tags"><span class="tag ok">материал есть</span></div></td></tr>
+<tr><td class="tm"><b>20:00</b>TG-02</td><td class="chc"><span class="ch tg">Telegram</span></td><td class="what"><b>Почему в одних методах перестройка идёт быстрее: нейропластичность как рабочий критерий выбора</b><div class="sub">Для специалистов</div><div class="tags"><span class="tag ok">материал есть</span></div></td></tr>
+</tbody></table></div>
+<div class="day"><div class="dayhead"><b>пт 28.08</b><span class="muted">2 публикации</span><span class="muted">· Рилс 1 · Сторис 1</span><span class="tag rec">записать: 2</span></div><table><tbody>
+<tr><td class="tm"><b>08:30</b>R-05</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Два этажа одной нервной системы</b><div class="sub">«Таблетки — это костыль»: спор, в котором вопрос поставлен неверно · Реакция на чужое · 55 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>13:00</b>S-03</td><td class="chc"><span class="ch story">Сторис</span></td><td class="what"><b>Продолжение R-06: то же действие руками, но целиком и без монтажа. Кадр на шаг</b><div class="sub">Техника · 4 кадров</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+</tbody></table></div>
+<div class="day"><div class="dayhead"><b>сб 29.08</b><span class="muted">2 публикации</span><span class="muted">· Пост 1 · Рилс 1</span><span class="tag rec">записать: 1</span></div><table><tbody>
+<tr><td class="tm"><b>10:00</b>R-06</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Руками, а не мыслями</b><div class="sub">Что делать руками, когда накрывает и думать уже нечем · Демонстрация · 30 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>12:00</b>P-03</td><td class="chc"><span class="ch post">Пост</span></td><td class="what"><b>«Ветки реальности»: как говорить с человеком, который объясняет свою жизнь эзотерикой, не обесценивая его</b><div class="sub">Карусель</div><div class="tags"><span class="tag ok">материал есть</span></div></td></tr>
+</tbody></table></div>
+<div class="day"><div class="dayhead"><b>вс 30.08</b><span class="muted">3 публикации</span><span class="muted">· Рилс 1 · Сторис 1 · Telegram 1</span><span class="tag rec">записать: 3</span></div><table><tbody>
+<tr><td class="tm"><b>11:00</b>R-07</td><td class="chc"><span class="ch reel">Рилс</span></td><td class="what"><b>Совет без инструкции</b><div class="sub">«Просто полюби себя»: совет без единой инструкции внутри · Реакция на чужое · 55 с</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>18:00</b>S-04</td><td class="chc"><span class="ch story">Сторис</span></td><td class="what"><b>Опрос: что было бы для вас доказательством, что метод работает — самочувствие, реакция близких, конкретное изменение в жизни</b><div class="sub">Опрос · 2 кадров</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+<tr><td class="tm"><b>20:00</b>TG-03</td><td class="chc"><span class="ch tg">Telegram</span></td><td class="what"><b>Мысль, которую запретили: почему «не думай об этом» работает наоборот</b><div class="sub">Лонгрид</div><div class="tags"><span class="tag rec">нужна запись</span></div></td></tr>
+</tbody></table></div></div>
+<footer>Слотов: 17. Собрано из <code>plan.yaml</code> — источника правды. Эта страница пересобирается командой <code>plan_render.py &lt;plan.yaml&gt; --projection system</code> и руками не правится.</footer>
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.tabbtn'));
+  function show(id){
+    btns.forEach(function(b){b.classList.toggle('on',b.dataset.t===id);});
+    [].forEach.call(document.querySelectorAll('.tabpane'),function(p){
+      p.classList.toggle('on',p.id===id);});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    show(b.dataset.t);
+    history.replaceState(null,'','#'+b.dataset.t);
+  });});
+  function fromHash(){
+    var id=location.hash.slice(1);
+    if(id && document.getElementById(id)) show(id);
+  }
+  // Ссылка вида …/system.html#t-cal, открытая на УЖЕ загруженной странице, меняет
+  // только хеш и документ не перезагружает — без этого слушателя вкладка не
+  // переключалась, и ссылка на сводный план молча вела «по каналам».
+  window.addEventListener('hashchange',fromHash);
+  fromHash();
+})();
+</script>
+</div></body></html>

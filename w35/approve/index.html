@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>На аппрув · kristina · 2026-W35</title>
+<style>
+:root{--cream:#FDFBF6;--navy:#1F3A5F;--accent:#B9461D;--beige:#F4F0E6;
+--ink:#16181C;--muted:#6B7280;--line:#E4DCCB;--green:#2E7D32;--gold:#C79A2B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:15px/1.5 -apple-system,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;color:var(--navy)}
+.sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12px;
+background:var(--beige);color:var(--navy);margin-right:6px}
+.badge.warn{background:#FBEEE7;color:var(--accent)}
+.note{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);
+border-radius:0 8px 8px 0;padding:12px 16px;margin:18px 0;font-size:14px}
+.note b{color:var(--navy)}
+h2{font-size:18px;color:var(--navy);margin:30px 0 10px;padding-top:14px;
+border-top:2px solid var(--navy)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px}
+th{background:var(--beige);color:var(--navy);text-align:left;font-weight:600;
+padding:8px 10px;border:1px solid var(--line);font-size:12.5px}
+td{padding:9px 10px;border:1px solid var(--line);vertical-align:top}
+tr.daystart td{border-top:2px solid var(--navy)}
+.dt{white-space:nowrap;color:var(--muted);font-size:12.5px}
+.topic{font-weight:600}
+.angle{color:#3d4450}
+.ask{background:#FAF7F0;font-size:13.5px;line-height:1.45}
+.ask.have{background:#EDF6ED;color:var(--green)}
+.askcol{width:38%}
+.sid{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
+.note.src{border-left-color:var(--muted);font-size:13px}
+.card.shot{flex:1 1 100%;margin:14px 0;padding:0;overflow:hidden}
+.cardhead{background:var(--navy);color:#fff;padding:10px 14px;font-size:15px}
+.cardhead b{margin-right:8px}
+.sid2{font-family:"SF Mono",Menlo,monospace;font-size:12px;opacity:.75;margin-right:8px}
+.meta2{float:right;font-size:12px;opacity:.8;font-weight:400}
+.setup{padding:12px 14px;background:#F7F9FB;border-bottom:1px solid var(--line);font-size:13.5px}
+.srow{display:flex;gap:10px;margin:5px 0;align-items:baseline}
+.skey{flex:0 0 132px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+ul.mv{margin:0;padding-left:16px}
+ul.mv li{margin:2px 0}
+@media (max-width:760px){.srow{display:block}.skey{display:block;margin-bottom:2px}}
+.stake{padding:10px 14px;background:#FAF7F0;font-size:13.5px;border-bottom:1px solid var(--line)}
+.hookbox{padding:12px 14px;background:#FBEEE7;border-bottom:1px solid var(--line)}
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.hooktxt{font-size:19px;font-weight:700;color:var(--accent);line-height:1.3}
+table.beats{font-size:13.5px;margin:0}
+table.beats th{font-size:11.5px}
+table.beats td{border-left:none;border-right:none}
+table.beats tr.turn td{background:#FDF4F0}
+table.beats tr.turn .act{font-weight:600;color:var(--accent)}
+td.act{width:32%;color:#3d4450}
+td.line{font-size:15px;line-height:1.45}
+.takes{padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px}
+.takes ol{margin:4px 0 0;padding-left:20px}
+.takes li{margin:3px 0}
+.props{padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px;background:#FAFAF7}
+.card.shot .note{margin:0;border-radius:0;border-top:1px solid var(--line);border-left:3px solid var(--gold)}
+@media print{.card.shot{page-break-inside:avoid}.cardhead{background:#1F3A5F !important;-webkit-print-color-adjust:exact}}
+@media (max-width:760px){
+  td.act{width:auto}
+  table.beats,table.beats tbody,table.beats tr,table.beats td{display:block;width:100%}
+  table.beats thead{display:none}
+  table.beats tr{border-bottom:1px solid var(--line);padding:8px 12px;margin:0;border-radius:0}
+  table.beats td{padding:2px 0;border:none}
+  .meta2{float:none;display:block;margin-top:3px}
+}
+.briefs{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.brief{flex:1 1 300px;background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;font-size:13.5px;line-height:1.45}
+.bttl{font-weight:700;color:var(--navy);margin-bottom:4px}
+@media (max-width:760px){.brief{flex:1 1 100%}}
+.locked{color:var(--muted);font-size:12.5px;white-space:nowrap}
+/* Ширины «Темы» и «Угла» заданы явно, иначе браузер делит место по объёму
+   текста, а в заданиях текста больше всего. */
+td.topic{min-width:150px}
+td.angle{min-width:150px}
+@media (max-width:760px){td.topic,td.angle{width:auto;min-width:0}}
+.job{display:inline-block;padding:1px 7px;border-radius:12px;font-size:11.5px;
+background:var(--beige);color:var(--navy)}
+.check{width:52px;text-align:center;color:var(--line);font-size:17px;white-space:nowrap}
+h3{font-size:14px;color:var(--navy);margin:0 0 8px}
+.cards{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0;align-items:flex-start}
+.card{flex:1 1 250px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.card .note{margin:10px 0 0;font-size:12.5px;padding:8px 10px}
+table.mini{font-size:13px}
+table.mini td{border:none;border-bottom:1px solid var(--beige);padding:4px 0}
+.num{text-align:right;white-space:nowrap}
+.muted{color:var(--muted);font-weight:400}
+.caps{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.cap{flex:1 1 220px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13.5px}
+.cap.over{border-color:var(--accent);background:#FDF4F0}
+.capttl{font-weight:600;color:var(--navy);margin-bottom:6px;font-size:13px}
+.verdict{padding:10px 14px;border-radius:8px;font-size:14px;font-weight:600;margin:6px 0 4px}
+.verdict.ok{background:#EDF6ED;color:var(--green)}
+.verdict.bad{background:#FBEEE7;color:var(--accent)}
+.warn{color:var(--accent)}
+.note.warn{border-left-color:var(--accent)}
+.scroll{overflow-x:auto}
+.scroll table{min-width:100%}
+.scroll td{vertical-align:top}
+.scroll td[data-l="От эксперта"]{min-width:250px}
+.scroll td[data-l="Тема и угол"],.scroll td[data-l="Тема"]{min-width:220px}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--muted);font-size:12.5px}
+@media print{body{background:#fff}.wrap{max-width:none;padding:0}
+  tr{page-break-inside:avoid}h2{page-break-after:avoid}}
+
+/* ─── Вкладки. Системная версия несёт два разных вопроса: «что в канале» и
+   «что выходит в четверг». Раньше они лежали в одной простыне, и второй
+   не отвечался вовсе — календарь приходилось собирать в голове. ─── */
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;margin:18px 0 0;
+  padding:8px 0;background:var(--cream);border-bottom:1px solid var(--line)}
+.tabbtn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--navy);
+  font:600 13.5px/1 inherit;padding:9px 16px;border-radius:8px;cursor:pointer}
+.tabbtn:hover{border-color:var(--navy)}
+.tabbtn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabpane{display:none}
+.tabpane.on{display:block}
+@media print{.tabs{display:none}.tabpane{display:block !important}}
+
+/* ─── Раскрывающееся задание эксперту. Текст «что наговорить» длинный по
+   построению (§4 схемы: глагол + форма + количество + что раскрыть), и в
+   ячейке таблицы он раздувал строку так, что остальные поля переставали
+   читаться. Свёрнут по умолчанию, развёрнут по клику. ─── */
+details.ask{font-size:13px}
+details.ask>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;
+  gap:6px;padding:4px 10px;border:1px solid var(--line);border-radius:14px;
+  background:#FAF7F0;color:var(--navy);font-weight:600;font-size:12px;white-space:nowrap}
+details.ask>summary::-webkit-details-marker{display:none}
+details.ask>summary::before{content:"▸";font-size:11px;color:var(--muted)}
+details.ask[open]>summary::before{content:"▾"}
+details.ask>summary:hover{border-color:var(--navy)}
+details.ask>div{margin-top:8px;padding:10px 12px;background:#FAF7F0;
+  border-radius:8px;line-height:1.5;min-width:230px;max-width:460px}
+details.ask.have>summary{background:#EDF6ED;color:var(--green);border-color:#CFE6CF}
+details.ask.have>div{background:#EDF6ED}
+@media print{details.ask>div{display:block !important;max-width:none}}
+
+/* ─── Бейджи каналов: в сводном плане строки разных каналов идут вперемешку,
+   и канал должен читаться боковым зрением, а не вычитываться. ─── */
+.ch{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11.5px;
+  font-weight:600;white-space:nowrap;border:1px solid transparent}
+.ch.reel{background:#EDE7F6;color:#4527A0}
+.ch.story{background:#FFF3E0;color:#B9461D}
+.ch.post{background:#E3F2FD;color:#0D47A1}
+.ch.tg{background:#E0F2F1;color:#00695C}
+.ch.th{background:#F3E5F5;color:#6A1B9A}
+.ch.pr,.ch.sup{background:var(--beige);color:var(--navy)}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;
+  background:var(--beige);color:var(--navy);white-space:nowrap;margin:0 3px 3px 0}
+.tag.pin{background:#E3F2FD;color:#0D47A1}
+.tag.hl{background:#FFF3E0;color:#B9461D}
+.tag.rec{background:#FBEEE7;color:var(--accent);font-weight:600}
+.tag.ok{background:#EDF6ED;color:var(--green)}
+
+/* ─── Сводный план: день как блок, а не как строка таблицы. ─── */
+.day{background:#fff;border:1px solid var(--line);border-radius:10px;
+  margin:0 0 14px;overflow:hidden}
+.dayhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  padding:10px 14px;background:var(--beige);border-bottom:1px solid var(--line)}
+.dayhead b{color:var(--navy);font-size:15px}
+.dayhead .muted{font-size:12.5px}
+.day table{border:none}
+.day td{border-left:none;border-right:none;border-top:none;
+  border-bottom:1px solid var(--beige);vertical-align:top}
+.day tr:last-child td{border-bottom:none}
+td.tm{white-space:nowrap;color:var(--muted);font-size:12.5px;width:66px}
+td.tm b{display:block;color:var(--ink);font-size:13.5px}
+td.what .tags{margin-top:6px;line-height:1}
+td.chc{width:92px}
+td.what b{color:var(--ink)}
+td.what .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.ax{display:flex;gap:6px;align-items:baseline;margin:0 0 5px;line-height:1}
+.ax:last-child{margin-bottom:0}
+.axk{flex:0 0 54px;font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--muted);padding-top:2px}
+.ax .tag,.ax .job{margin:0 3px 0 0}
+details.note.why{padding:0;border-left-width:3px}
+details.note.why>summary{cursor:pointer;list-style:none;display:inline-flex;
+  align-items:center;gap:6px;padding:10px 16px;font-weight:600;color:var(--navy);
+  font-size:13px}
+details.note.why>summary::-webkit-details-marker{display:none}
+details.note.why>summary::before{content:"▸";color:var(--muted);font-size:11px}
+details.note.why[open]>summary::before{content:"▾"}
+details.note.why>div{padding:0 16px 12px;font-size:13.5px;line-height:1.5}
+@media print{details.note.why>div{display:block !important}}
+.axes-key{margin:14px 0 6px}
+.axes-key>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;
+  gap:6px;font-size:13px;font-weight:600;color:var(--navy);padding:6px 12px;
+  border:1px solid var(--line);border-radius:8px;background:#fff}
+.axes-key>summary::-webkit-details-marker{display:none}
+.axes-key>summary::before{content:"▸";color:var(--muted)}
+.axes-key[open]>summary::before{content:"▾"}
+.axes-key table{margin-top:10px;font-size:13px}
+.axes-key td:first-child{width:120px;white-space:nowrap;color:var(--navy);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px;font-size:12.5px;
+  color:var(--muted);align-items:center;line-height:1}
+.empty{padding:12px 14px;color:var(--muted);font-size:13px}
+@media (max-width:760px){
+  .day table,.day tbody,.day tr,.day td{display:block;width:100%}
+  .day tr{border:none;border-bottom:1px solid var(--beige);border-radius:0;
+    margin:0;padding:10px 12px;background:#fff}
+  .day td{padding:2px 0}
+  td.tm,td.chc{width:auto;display:inline-block;margin-right:8px}
+}
+/* Телефон: строка таблицы разворачивается в карточку. Эксперт открывает эту
+   страницу там же, где записывает голосовые, а пять колонок в 375 px не влезают. */
+@media (max-width:760px){
+  .wrap{padding:18px 12px 40px}
+  table,thead,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  tr{background:#fff;border:1px solid var(--line);border-radius:10px;
+     margin:0 0 12px;padding:10px 12px;position:relative}
+  tr.daystart{border-top:1px solid var(--line)}
+  td{border:none;padding:4px 0 4px 0}
+  td:empty{display:none}
+  td[data-l]::before{content:attr(data-l);display:block;font-size:11px;
+    text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:1px}
+  td.topic{font-size:16px;font-weight:600}
+  td.ask{background:var(--beige);border-radius:8px;padding:10px 12px;margin-top:6px}
+  .check{position:absolute;top:10px;right:12px;width:auto;text-align:right}
+  .askcol{width:auto}
+}
+</style></head><body>
+<div class="wrap">
+<h1>Контент-план на аппрув</h1>
+<div class="sub">неделя 24.08 — 30.08<br><span class="badge">съёмка 22.08</span></div>
+<div class="note"><b>Что с этим делать.</b> Посмотреть тему и угол каждой карточки. Тему и угол можно менять — это ваша территория. Формат заблокирован: он посчитан от ёмкости съёмочного дня, и правка одной строки двигает остальные.<br><br>Записывать нужно <b>не на каждую карточку</b>: там, где написано «записывать ничего не нужно», материал уже есть в ваших прежних голосовых. Где задание есть — <b>наговорите по нему</b>. Это не текст ролика и не пересказ: наговорите так, как объяснили бы клиенту, своими словами, 2–3 минуты. Из этого потом соберутся и реплики в кадре, и подписи. В названии файла — код карточки.</div>
+<h2>Что от вас нужно в каждом формате</h2><div class="briefs"><div class="brief"><div class="bttl">Реакция на чужое</div><div>Вы отвечаете на чужую фразу — ту, что человеку говорят близкие и повторяет вся лента. Нужно три вещи: сама фраза ДОСЛОВНО, почему в неё верят, и что происходит на самом деле. Самая сильная форма по нашим замерам. Важно назвать фразу вашими словами так, как вы её слышите от клиентов, — она станет первой секундой ролика. </div></div><div class="brief"><div class="bttl">Сценка</div><div>Сейчас от вас нужны САМИ СЛОВА, а не описание: наговорите реплики за человека, как это звучит в жизни. Три-пять реплик плюс момент, где разговор разворачивается. Слова нужны дословно потому, что на съёмке вы будете эту ситуацию играть, а не рассказывать о ней. </div></div><div class="brief"><div class="bttl">Демонстрация</div><div>Наговорите, что именно делаете по шагам и что зритель должен увидеть. На съёмке это будут руки и предмет, лицо не обязательно, речь идёт за кадром. На аккаунтах вашего размера это измеренный драйвер, а не способ сэкономить. </div></div><div class="brief"><div class="bttl">Карусель</div><div>Пост из карточек, который читают глазами и сохраняют. Снимать не надо, нужен связный рассказ голосом. </div></div></div>
+<h2>Instagram · рилсы <span class="muted">· 7</span></h2>
+<table><thead><tr><th class="check">✓</th><th>Формат</th><th>Тема</th><th>Угол</th><th>Название</th><th class="askcol">Что наговорить</th></tr></thead><tbody>
+<tr><td class="check">☐<div class="sid">R-01</div></td><td class="locked" data-l="Формат">Реакция на чужое</td><td class="topic" data-l="Тема">«Просто перестань об этом думать»: мозг в этот момент занят обратным</td><td class="angle" data-l="Угол">Запрет на мысль удерживает её: мозгу приходится помнить, о чём именно нельзя вспоминать</td><td class="" data-l="Название">Команда, которую мозг не выполняет</td><td class="ask" data-l="Что наговорить">Человеку говорят «просто перестань об этом думать», и он правда пытается — а мысль возвращается ещё чаще. Наговорите, почему так происходит: что делает мозг, когда мы запрещаем себе о чём-то думать, и почему запрет удерживает мысль вместо того, чтобы её убрать. Начните с самой фразы — скажите её дословно, так, как вы слышите её от клиентов. Слова «мозг» и «нервная система» нужны прямо в объяснении; названия отделов мозга и гормонов не нужны, они по нашим замерам ничего не добавляют.</td></tr>
+<tr><td class="check">☐<div class="sid">R-02</div></td><td class="locked" data-l="Формат">Сценка</td><td class="topic" data-l="Тема">«Он совсем другой». Через полгода тот же разговор, что и с прошлым</td><td class="angle" data-l="Угол">Узнавание срабатывает раньше оценки: знакомое читается как безопасное, даже когда оно ранит</td><td class="" data-l="Название">Тот же сценарий, другое имя</td><td class="ask" data-l="Что наговорить">Разговор двух подруг: одна рассказывает про нового мужчину и уверена, что этот совсем другой, вторая слышит ровно то же, что было в прошлый раз. Наговорите сам разговор — три-четыре реплики за каждую, живыми словами. Отдельно, уже не репликой, объясните, почему человек выбирает похожее: что в этот момент срабатывает быстрее осознанного решения. 🔴 Ярлыки не нужны — ни «абьюзер», ни типы привязанности: это ваш прямой запрет.</td></tr>
+<tr><td class="check">☐<div class="sid">R-03</div></td><td class="locked" data-l="Формат">Реакция на чужое</td><td class="topic" data-l="Тема">«Тебе просто надо себя заставить». Но нервная система уже на нуле</td><td class="angle" data-l="Угол">Истощение и лень выглядят одинаково снаружи и устроены по-разному внутри: заставлять себя в этом состоянии — тратить то, чего уже нет</td><td class="" data-l="Название">Не лень</td><td class="ask" data-l="Что наговорить">Человеку, у которого нет сил, говорят «соберись, просто заставь себя» — и он заставляет, а становится хуже. Наговорите, чем истощение отличается от лени и что происходит с нервной системой, когда человек в этом состоянии давит на себя волей. Начните с самой фразы, дословно. Без диагнозов и без назначений: объясняете механизм, а не ставите состояние.</td></tr>
+<tr><td class="check">☐<div class="sid">R-04</div></td><td class="locked" data-l="Формат">Сценка</td><td class="topic" data-l="Тема">Родители ругались на кухне, а ребёнок в соседней комнате был уверен, что это из-за него</td><td class="angle" data-l="Угол">Ребёнок объясняет ссору собой не по ошибке: так у него остаются хорошие родители</td><td class="" data-l="Название">Вывод, который сделали за вас</td><td class="ask" data-l="Что наговорить">Ребёнок в соседней комнате слышит, как ругаются родители, и решает, что причина в нём. Наговорите эту сцену словами ребёнка — две-три фразы, которые он говорит себе в этот момент. Потом отдельно объясните, зачем психике такой вывод: почему для ребёнка проще считать виноватым себя, чем признать, что близкие ненадёжны.</td></tr>
+<tr><td class="check">☐<div class="sid">R-05</div></td><td class="locked" data-l="Формат">Реакция на чужое</td><td class="topic" data-l="Тема">«Таблетки — это костыль»: спор, в котором вопрос поставлен неверно</td><td class="angle" data-l="Угол">Препарат и терапия работают на разных этажах одной нервной системы; спор «или-или» поставлен неверно</td><td class="" data-l="Название">Два этажа одной нервной системы</td><td class="ask" data-l="Что наговорить">Человеку выписали препарат, и он слышит от близких «таблетки — это костыль». Наговорите, какие задачи решает медикаментозная помощь, а какие психотерапия, и почему это не обязательно выбор между одним и другим. Начните с самой фразы, дословно. 🔴 Без названий препаратов, без рекомендаций пить или не пить, без «лучше/хуже» и без противопоставления психологии и психиатрии. И без сроков и обещаний результата.</td></tr>
+<tr><td class="check">☐<div class="sid">R-06</div></td><td class="locked" data-l="Формат">Демонстрация</td><td class="topic" data-l="Тема">Что делать руками, когда накрывает и думать уже нечем</td><td class="angle" data-l="Угол">Через тело быстрее, чем через мысли: пока нервная система в тревоге, уговоры до неё не доходят</td><td class="" data-l="Название">Руками, а не мыслями</td><td class="ask" data-l="Что наговорить">Человека накрыло прямо сейчас, и думать он уже не может. Покажите одно действие, которое делается руками и занимает меньше минуты. Наговорите по шагам, что именно человек делает и что при этом происходит с нервной системой — почему через тело в этот момент быстрее, чем через мысли. 🔴 Без обещания, что тревога уйдёт, и без подачи как замены помощи. Отдельно скажите, по каким признакам нужна уже не самопомощь, а врач.</td></tr>
+<tr><td class="check">☐<div class="sid">R-07</div></td><td class="locked" data-l="Формат">Реакция на чужое</td><td class="topic" data-l="Тема">«Просто полюби себя»: совет без единой инструкции внутри</td><td class="angle" data-l="Угол">Отношение к себе собрано из чужих взглядов и не переписывается решением; меняется то, чем оно держится</td><td class="" data-l="Название">Совет без инструкции</td><td class="ask" data-l="Что наговорить">Человеку сто раз сказали «полюби себя», и он не понимает, что с этим делать. Наговорите, почему этот совет невыполним как команда: из чего вообще складывается отношение человека к себе и почему оно не меняется решением. Начните с самой фразы. Если считаете этот совет пустым — скажите это прямо, вашими словами: несогласие здесь и есть ролик.</td></tr>
+</tbody></table>
+<h2>Instagram · сторис <span class="muted">· 4</span></h2>
+<div class="note src">Отдельных голосовых не нужно: материал берётся из записей к рилсам выше — одно голосовое раскладывается и в ролик, и в текст. Утвердите темы.</div>
+<table><thead><tr><th class="check">✓</th><th>Формат</th><th>Тема</th><th class="askcol">Что наговорить</th></tr></thead><tbody>
+<tr><td class="check">☐<div class="sid">S-01</div></td><td class="locked" data-l="Формат">Вопрос</td><td class="topic" data-l="Тема">Стикер-вопрос: «какую фразу вам говорили чаще всего — и она не помогала». Два кадра подводки, третий — стикер</td><td class="ask" data-l="Что наговорить">Отдельная запись не нужна, подводку возьмём из R-01. 🔑 Это вход в следующие недели: формат «реакция на чужое» держится на чужих фразах, а сейчас мы пишем их сами. После стикера они станут материалом от аудитории.</td></tr>
+<tr><td class="check">☐<div class="sid">S-02</div></td><td class="locked" data-l="Формат">Разбор присланного</td><td class="topic" data-l="Тема">Разбор двух-трёх фраз из стикера, голосом, по 20–30 секунд на каждую</td><td class="ask" data-l="Что наговорить">Заранее записывать ничего не нужно — сначала получим ответы аудитории.</td></tr>
+<tr><td class="check">☐<div class="sid">S-03</div></td><td class="locked" data-l="Формат">Техника</td><td class="topic" data-l="Тема">Продолжение R-06: то же действие руками, но целиком и без монтажа. Кадр на шаг</td><td class="ask" data-l="Что наговорить">Записывать отдельно не нужно: снимается в один заход с R-06.</td></tr>
+<tr><td class="check">☐<div class="sid">S-04</div></td><td class="locked" data-l="Формат">Опрос</td><td class="topic" data-l="Тема">Опрос: что было бы для вас доказательством, что метод работает — самочувствие, реакция близких, конкретное изменение в жизни</td><td class="ask" data-l="Что наговорить">Отдельная запись не нужна. Это опрос.</td></tr>
+</tbody></table>
+<h2>Instagram · посты <span class="muted">· 3</span></h2>
+<table><thead><tr><th class="check">✓</th><th>Формат</th><th>Тема</th><th>Угол</th><th class="askcol">Что наговорить</th></tr></thead><tbody>
+<tr><td class="check">☐<div class="sid">P-01</div></td><td class="locked" data-l="Формат">Карусель</td><td class="topic" data-l="Тема">Доход вырос, а ощущение опасности осталось</td><td class="angle" data-l="Угол">6 карточек: как это выглядит изнутри, почему сумма на счету не отменяет тревоги, за счёт чего держится ощущение «вот-вот всё рухнет», с чего начинается работа</td><td class="ask" data-l="Что наговорить">Человек зарабатывает заметно больше, чем раньше, а чувство безопасности не появилось. Наговорите, почему так бывает: за счёт чего держится ощущение угрозы, когда объективно всё в порядке, и почему рост дохода сам по себе его не снимает.</td></tr>
+<tr><td class="check">☐<div class="sid">P-02</div></td><td class="locked" data-l="Формат">Карусель</td><td class="topic" data-l="Тема">Сколько на самом деле нужно ходить: четыре разных сценария вместо одного «годами»</td><td class="angle" data-l="Угол">5 карточек: одна-две встречи под конкретную точку · три-шесть месяцев под задачу · долгий контакт с редкими встречами · раз в год на пересборку. Последняя карточка — как понять, какой сценарий ваш</td><td class="ask have" data-l="Что наговорить">✓ Записывать ничего не нужно — этот материал у нас уже есть в ваших голосовых. Записывать ничего не нужно: вы это уже рассказывали. Соберём из вашего голосового про длительность работы. 🔴 Сроков и обещаний результата в тексте не будет.</td></tr>
+<tr><td class="check">☐<div class="sid">P-03</div></td><td class="locked" data-l="Формат">Карусель</td><td class="topic" data-l="Тема">«Ветки реальности»: как говорить с человеком, который объясняет свою жизнь эзотерикой, не обесценивая его</td><td class="angle" data-l="Угол">6 карточек: с чем такой человек приходит · почему спорить бесполезно · что в этой картине мира правда работает · как то же самое выглядит со стороны психики · где проходит граница</td><td class="ask have" data-l="Что наговорить">✓ Записывать ничего не нужно — этот материал у нас уже есть в ваших голосовых. Записывать ничего не нужно: позиция сформулирована в вашем голосовом целиком.</td></tr>
+</tbody></table>
+<h2>Telegram <span class="muted">· 3</span></h2>
+<table><thead><tr><th class="check">✓</th><th>Формат</th><th>Тема</th><th class="askcol">Что наговорить</th></tr></thead><tbody>
+<tr><td class="check">☐<div class="sid">TG-01</div></td><td class="locked" data-l="Формат">Лонгрид</td><td class="topic" data-l="Тема">Когда уже пробовали и не помогло</td><td class="ask" data-l="Что наговорить">Человек уже был у специалиста, ходил какое-то время, и ему не стало легче. Наговорите, что вы в таком случае делаете иначе: с чего начинаете, что выясняете в первую очередь и почему предыдущий заход мог не сработать — без оценки коллег и без «там было плохо, а у меня хорошо». 🔴 Сроки, цифры и обещания результата не называем. Кейс, если будете рассказывать, — только обезличенно: без города, возраста, профессии и сумм.</td></tr>
+<tr><td class="check">☐<div class="sid">TG-02</div></td><td class="locked" data-l="Формат">Для специалистов</td><td class="topic" data-l="Тема">Почему в одних методах перестройка идёт быстрее: нейропластичность как рабочий критерий выбора</td><td class="ask have" data-l="Что наговорить">✓ Записывать ничего не нужно — этот материал у нас уже есть в ваших голосовых. Записывать не нужно: это ваше голосовое про паттерн активации нейронов и выбор метода под задачу. 🔴 Без критики конкретных школ и коллег.</td></tr>
+<tr><td class="check">☐<div class="sid">TG-03</div></td><td class="locked" data-l="Формат">Лонгрид</td><td class="topic" data-l="Тема">Мысль, которую запретили: почему «не думай об этом» работает наоборот</td><td class="ask" data-l="Что наговорить">Отдельная запись не нужна. Текст соберём на основе R-01.</td></tr>
+</tbody></table>
+<footer>Карточек на аппрув: 17 из 17 в плане. Записать голосовых: 9, ещё 3 карточек закрыты вашими прежними записями.<br>Собрано из <code>plan.yaml</code> (kristina-2026-W35) — правки вносятся в него, эта страница пересобирается.</footer>
+</div></body></html>
